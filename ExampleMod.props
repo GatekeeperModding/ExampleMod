@@ -1,0 +1,11 @@
+﻿<Project>
+    <ItemGroup>
+        <Reference Include="GKAPI">
+            <HintPath>..\GKAPI\bin\Debug\net6.0\GKAPI.dll</HintPath>
+        </Reference>
+
+        <PackageReference Include="BepInEx.Analyzers" Version="1.0.8" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
+        <PackageReference Include="UnityEngine.Modules" Version="2021.3.33"/>
+        <PackageReference Include="Gatekeeper.GameLibs.Steam" Version="0.8.5.20" />
+    </ItemGroup>
+</Project>
