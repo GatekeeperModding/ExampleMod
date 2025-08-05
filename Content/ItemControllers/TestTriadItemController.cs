@@ -6,7 +6,7 @@ namespace ExampleMod.Content.ItemControllers;
 
 public class TestTriadItemController : CustomItemController
 {
-    public override void ClientHandleSkillUsed(EventClientCharacterSkillUsed eventData)
+    public override void OwnerHandleSkillUsed(EventClientCharacterSkillUsed eventData)
     {
         if (IsItemInInventory && eventData.SkillType == SkillType.Third)
         {
