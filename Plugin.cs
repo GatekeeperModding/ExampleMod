@@ -1,26 +1,27 @@
-﻿using System.Collections.Generic;
-using BepInEx;
+﻿using BepInEx;
 using BepInEx.Logging;
 using ExampleMod.Content.ItemControllers;
 using Gatekeeper.Items;
 using Gatekeeper.PoolScripts;
 using Gatekeeper.Utility;
-using Gatekeeper.Utility.SceneHelper;
 using GKAPI;
 using GKAPI.Achievements;
 using GKAPI.Difficulties;
 using GKAPI.Enemies;
 using GKAPI.Items;
 using GKAPI.Lang;
-using RNGNeeds;
 using UnityEngine;
 
 namespace ExampleMod;
 
-[BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
+[BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 [BepInDependency(GKAPI.Plugin.PluginGuid)]
 public class Plugin : GkPlugin
 {
+    public const string PluginGuid = "com.robocraft999.examplemod";
+    public const string PluginName = "ExampleMod";
+    private const string PluginVersion = "0.1.0";
+    
     internal new static ManualLogSource Log;
 
     public override void Load()
@@ -28,7 +29,7 @@ public class Plugin : GkPlugin
         base.Load();
         // Plugin startup logic
         Log = base.Log;
-        Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
+        Log.LogInfo($"Plugin {PluginName} is loaded!");
     }
 
     public override void AddContent()
@@ -55,7 +56,7 @@ public class Plugin : GkPlugin
         var cloverItem = itemAPI.AddItem(new GkItem.Builder("Clover", "Nothing", "You're feeling lucky today")
             .SetUnlocked(true)
             .SetHidden(false)
-            .WithItemType(ItemType.RunesOfCreation)
+            .AsRuneOfCreation()
             .WithDropSource(ItemDropSource.Obelisks | ItemDropSource.Pedestal | ItemDropSource.EndOfRound)
             .WithMaxCount(15)
             .AddModification(ItemParamModificationType.RiftmakerProcChancePerc, 0.02f, 0.02f)
