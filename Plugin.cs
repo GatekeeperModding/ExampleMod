@@ -71,7 +71,7 @@ public class Plugin : GkPlugin
             .AddModification(ItemParamModificationType.InertiaChancePerc, 0.05f, 0.04f)
             .AddModification(ItemParamModificationType.HvcChancePerc, 0.1f, 0.04f)
         );
-        var bobItem = itemAPI.AddItem("Bob");
+        var bobItem = itemAPI.AddItem("Min");
         var testTriad = itemAPI.AddTriad("TestTriad", [ItemID.RuneOfRebound, ItemID.Triumph, testItem.GetItemID], builder => builder.SetUnlocked(true).SetHidden(false));
         itemAPI.AddItemController<TestTriadItemController>(testTriad.GetItemID);
         

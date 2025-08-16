@@ -21,7 +21,8 @@
         <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*"/>
     </ItemGroup>
 
-    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <Exec Command="xcopy /q /Y &quot;$(TargetDir)$(ProjectName).dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\Gatekeeper\BepInEx\plugins&quot; &gt; nul" />
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition=" '$(IsDevEnv)'=='true' ">
+        <Exec Command="xcopy /q /Y &quot;$(TargetDir)$(ProjectName).dll&quot; &quot;C:\Program Files (x86)\Steam\steamapps\common\Gatekeeper\BepInEx\plugins&quot; &gt; nul"/>
+        <Exec Command="python ../../Tools/autoversion/versioner.py $(ProjectName)"/>
     </Target>
 </Project>
