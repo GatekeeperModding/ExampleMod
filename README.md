@@ -5,6 +5,9 @@ using the [GKAPI](https://github.com/Robocraft999/GKAPI) (Gatekeeper Modding API
 ## Using the Mod
 To use the Mod or any Mods built with the API you have to do the following:
 
+### **With** r2modman (or other thunderstore clients):
+- Install the mods within the launcher and launch the modded game
+
 ### **Without** r2modman (or other thunderstore clients):
 The following instructions use the term ``game root`` which is the folder where the executable is located.<br>
 On Windows you probably find it under `C:\Program Files (x86)\Steam\steamapps\common\Gatekeeper`
@@ -16,12 +19,9 @@ On Windows you probably find it under `C:\Program Files (x86)\Steam\steamapps\co
 4. Extract the contents into the ``game root``
 5. Run the game executable to generate configuration files for the modloader
 6. Download ``GKAPI`` and ``ExampleMod`` from [thunderstore](https://thunderstore.io/c/gatekeeper/)
-7. Put 
+7. Put them under your ``game root``/BepInEx/plugins
 
 (Instructions inspired by the [BepInEx docs](https://docs.bepinex.dev/master/articles/user_guide/installation/unity_il2cpp.html?tabs=tabid-win))
-
-### **With** r2modman (or other thunderstore clients):
-- Not yet available
 
 ## Current Content
 The following categories are structured by the layout of the API
