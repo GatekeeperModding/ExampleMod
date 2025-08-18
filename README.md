@@ -1,4 +1,4 @@
-﻿# ExampleMod
+# ExampleMod
 Examplemod for Modding the Unity Game [Gatekeeper](https://store.steampowered.com/app/2106670/Gatekeeper/)
 using the [GKAPI](https://github.com/Robocraft999/GKAPI) (Gatekeeper Modding API)
 
