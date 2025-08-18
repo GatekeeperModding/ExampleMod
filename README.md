@@ -2,6 +2,9 @@
 Examplemod for Modding the Unity Game [Gatekeeper](https://store.steampowered.com/app/2106670/Gatekeeper/)
 using the [GKAPI](https://github.com/Robocraft999/GKAPI) (Gatekeeper Modding API)
 
+## Please Backup your saves before use!
+you can probably find them under `C:\Users\<your user profile>\AppData\LocalLow\Gravity Lagoon\Gatekeeper\Saves`
+
 ## Using the Mod
 To use the Mod or any Mods built with the API you have to do the following:
 
