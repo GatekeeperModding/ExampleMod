@@ -5,7 +5,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <AssemblyName>ExampleMod</AssemblyName>
         <Product>ExampleMod</Product>
-        <Version>0.9.1</Version>
+        <Version>0.9.2</Version>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <LangVersion>latest</LangVersion>
         <RestoreAdditionalProjectSources>
@@ -19,6 +19,13 @@
     <ItemGroup>
         <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.*" IncludeAssets="compile"/>
         <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*"/>
+    </ItemGroup>
+
+    <ItemGroup>
+    <None Remove="Assets\examplebundle" />
+        <EmbeddedResource Include="Assets\examplebundle">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </EmbeddedResource>
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition=" '$(IsDevEnv)'=='true' ">

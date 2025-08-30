@@ -52,3 +52,7 @@ which aims to be around 500% (uses custom [enemy templates](#templates))
 
 - enemy spawn templates for the custom [difficulty](#difficulties) for each planet for loop 1, loop 2 and all after
 
+## Credits
+
+Thanks to [we1u](https://github.com/wewejay) for the Clover assets
+

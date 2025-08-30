@@ -6,6 +6,7 @@ using Gatekeeper.PoolScripts;
 using Gatekeeper.Utility;
 using GKAPI;
 using GKAPI.Achievements;
+using GKAPI.AssetBundles;
 using GKAPI.Difficulties;
 using GKAPI.Enemies;
 using GKAPI.Items;
@@ -21,6 +22,8 @@ public class Plugin : GkPlugin
     public const string PluginGuid = "com.robocraft999.examplemod";
     public const string PluginName = "ExampleMod";
     private const string PluginVersion = "0.1.0";
+
+    private const string BundlePath = "ExampleMod.Assets.examplebundle";
     
     internal new static ManualLogSource Log;
 
@@ -34,7 +37,7 @@ public class Plugin : GkPlugin
 
     public override void AddContent()
     {
-        if (EventHandler.State != EventHandler.LoadingState.PreInit)
+        if (EventHandler.State != LoadingState.PreInit)
         {
             Log.LogError("Content has to be added during Pre-Init!");
             return;
@@ -42,14 +45,15 @@ public class Plugin : GkPlugin
 
         GlobalSettings.Instance.buildCheating = true;
         GlobalSettings.Instance.buildDebugConsole = true;
+        GlobalSettings.Instance.buildBacktrace = true;
 
         var achievementAPI = AchievementsAPI.Instance;
         var baseAchievement = achievementAPI.AddAchievement(new GkAchievement.Builder());
         
         var itemAPI = ItemAPI.Instance;
-        var testItem = itemAPI.AddItem(new GkItem.Builder("Test Item", "Test item description", $"{ColorHelper.WrapInColor("{[Mod1_Lvl1]}% (+{[Mod1_Lvl2]}% per stack)", Colors.Red)} to critical damage.")
+        var testItem = itemAPI.AddItem(new GkItem.Builder("Test Item", "Test item description", $"{ColorHelper.WrapInColorHex("{[Mod1_Lvl1]}% (+{[Mod1_Lvl2]}% per stack)", Colors.Red)} to critical damage.")
             .WithId("TEST")
-            .SetUnlocked(false)
+            .SetUnlocked(true)
             .SetHidden(false)
             .AddModification(ItemParamModificationType.CritDamagePerc, 0.5f, 0.25f)
         );
@@ -59,6 +63,7 @@ public class Plugin : GkPlugin
             .AsRuneOfCreation()
             .WithDropSource(ItemDropSource.Obelisks | ItemDropSource.Pedestal | ItemDropSource.EndOfRound)
             .WithMaxCount(15)
+            .WithModel(AssetHelper.LoadAsset<GameObject>(BundlePath, "assets/examplebundle/Item_Clover.prefab"))
             .AddModification(ItemParamModificationType.RiftmakerProcChancePerc, 0.02f, 0.02f)
             .AddModification(ItemParamModificationType.JujuReleaseProb, 0.02f, 0.02f)
             .AddModification(ItemParamModificationType.SootheStoneSpawnProb, 0.02f, 0.02f)
